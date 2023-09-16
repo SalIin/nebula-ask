@@ -6,6 +6,8 @@ import { FormEvent, useState } from "react";
 import Button from "../ui/Button";
 import RadioGroup from "../ui/RadioGroup";
 
+import { useSurveyStore } from "@/store/SurveyStore";
+
 import { Question } from "@/types/survey";
 
 interface SurveyFormProps {
@@ -15,6 +17,8 @@ interface SurveyFormProps {
 export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
   const { push } = useRouter();
 
+  const setAnswers = useSurveyStore((state) => state.setAnswers);
+
   const [checkedValues, setCheckedValues] = useState<string[]>([]);
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -23,6 +27,8 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
     const choosedAnswer = question.answers.find(
       ({ title }) => title === checkedValues[0]
     );
+
+    setAnswers({ id: question.id, values: checkedValues });
 
     push(`/question/${choosedAnswer!.nextStep}`);
   };
@@ -37,7 +43,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
 
   return (
     <form className="w-full max-w-screen-sm" onSubmit={handleFormSubmit}>
-      <h1 className="font-bold text-2xl mb-6">{question.title}</h1>
+      <h1 className="font-bold text-2xl mb-6">{question.title}:</h1>
 
       <RadioGroup
         checkedValues={checkedValues}
