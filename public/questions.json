@@ -1,5 +1,6 @@
 [
   {
+    "id": "gender",
     "title": "Select your gender",
     "multiple": false,
     "step": 0,
@@ -9,6 +10,7 @@
     ]
   },
   {
+    "id": "relationship",
     "title": "So we can get to know you better, tell us about your relationship status",
     "multiple": false,
     "step": 1,

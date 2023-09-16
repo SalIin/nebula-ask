@@ -1,7 +1,7 @@
 import path from "path";
 import fsPromises from "fs/promises";
 
-import { Question } from "@/types/question";
+import { Question } from "@/types/survey";
 
 export const getQuestions = async () => {
   // Get the path of the json file
