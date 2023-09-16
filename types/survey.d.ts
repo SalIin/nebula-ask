@@ -1,17 +1,18 @@
 export interface AnswerResult {
-  id: Question["id"];
+  type: Question["type"];
   values: Answer["title"][];
 }
 
 export interface Answer {
   title: string;
-  nextStep: number;
+  nextQuestion: string;
 }
 
 export interface Question {
   id: string;
+  type: string;
   title: string;
+  subtitle?: string;
   multiple: boolean;
-  step: number;
   answers: Answer[];
 }

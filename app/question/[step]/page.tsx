@@ -1,6 +1,6 @@
 import SurveyForm from "@/components/SurveyForm";
-import Button from "@/components/ui/Button";
-import { getQuestionByStep, getQuestions } from "@/utils/question";
+
+import { getQuestionById, getQuestions } from "@/utils/question";
 
 interface QuestionPageProps {
   params: {
@@ -9,7 +9,7 @@ interface QuestionPageProps {
 }
 
 export default async function QuestionPage({ params }: QuestionPageProps) {
-  const question = await getQuestionByStep(Number(params.step));
+  const question = await getQuestionById(params.step);
 
   if (!question) return null;
 
@@ -23,7 +23,8 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
 export async function generateStaticParams() {
   const questions = await getQuestions();
 
+  // TODO: type fix
   return questions.map((question: any) => ({
-    step: question.step.toString(),
+    step: question.id,
   }));
 }

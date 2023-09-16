@@ -14,10 +14,10 @@ export const getQuestions = async () => {
   return parsedData as Question[];
 };
 
-export const getQuestionByStep = async (question: number) => {
+export const getQuestionById = async (question: string) => {
   const questions = await getQuestions();
 
-  const searchedQuestion = questions.find(({ step }) => step === question);
+  const searchedQuestion = questions.find(({ id }) => id === question);
 
   return searchedQuestion;
 };
