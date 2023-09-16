@@ -3,12 +3,14 @@
 import Radio from "../Radio";
 
 interface RadioGroupProps {
+  multiple: boolean;
   checkedValues: string[];
   values: string[];
   onChange: (value: string) => void;
 }
 
 export const RadioGroup: React.FC<RadioGroupProps> = ({
+  multiple,
   checkedValues,
   values,
   onChange,
@@ -20,6 +22,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
       {values.map((value) => (
         <li key={value}>
           <Radio
+            type={multiple ? "checkbox" : "radio"}
             name="question"
             label={value}
             checked={isChecked(value)}

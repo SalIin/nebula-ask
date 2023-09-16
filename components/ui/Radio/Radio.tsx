@@ -4,12 +4,14 @@ interface RadioProps {
   label: string;
   name: string;
   checked: boolean;
+  type: "radio" | "checkbox";
   onChange: (value: string) => void;
 }
 
 export const Radio: React.FC<RadioProps> = ({
   label,
   name,
+  type,
   checked,
   onChange,
 }) => {
@@ -24,7 +26,7 @@ export const Radio: React.FC<RadioProps> = ({
       <input
         name={name}
         className="sr-only"
-        type="radio"
+        type={type}
         value={label}
         checked={checked}
         onChange={(e) => onChange(e.target.value)}

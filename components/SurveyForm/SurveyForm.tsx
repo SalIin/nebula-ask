@@ -42,7 +42,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
     if (!question.multiple) {
       setCheckedValues([value]);
     } else {
-      // Logic...
+      setCheckedValues((prev) => [...prev, value]);
     }
   };
 
@@ -87,6 +87,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
       )}
 
       <RadioGroup
+        multiple={question.multiple}
         checkedValues={checkedValues}
         values={question.answers.map(({ title }) => title)}
         onChange={handleValueCheck}

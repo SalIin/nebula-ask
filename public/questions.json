@@ -197,7 +197,7 @@
       },
       {
         "title": "Female",
-        "nextQuestion": ""
+        "nextQuestion": "47514f51-9fbb-434f-8234-cb754ca7ebca"
       }
     ]
   },
@@ -227,6 +227,54 @@
       {
         "title": "Strongly disagree",
         "nextQuestion": "b5e3010d-e6ba-46aa-a0bf-44ed9b79610f"
+      }
+    ]
+  },
+  {
+    "id": "47514f51-9fbb-434f-8234-cb754ca7ebca",
+    "type": "relationship-factors",
+    "title": "Are any of these factors currently affecting your relationship?",
+    "multiple": true,
+    "answers": [
+      {
+        "title": "Infidelity",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Depression",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Low sexual desire",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Poor body image",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Postpartum despression",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Anxiety",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Parenting issues",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Blended family issues",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "Divorce is on the table",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
+      },
+      {
+        "title": "None of these",
+        "nextQuestion": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef"
       }
     ]
   },
