@@ -3,8 +3,8 @@
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
-import Button from "../ui/Button";
-import RadioGroup from "../ui/RadioGroup";
+import Button from "@/components/ui/Button";
+import RadioGroup from "@/components/ui/RadioGroup";
 
 import { useSurveyStore } from "@/store/SurveyStore";
 

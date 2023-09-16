@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 import { AnswerResult } from "@/types/survey";
 
@@ -9,12 +10,19 @@ interface SurveyState {
   resetStore: VoidFunction;
 }
 
-export const useSurveyStore = create<SurveyState>((set, get) => ({
-  answers: [],
+export const useSurveyStore = create<SurveyState>()(
+  persist(
+    (set, get) => ({
+      answers: [],
 
-  setAnswers: (answer) => {
-    set({ answers: [...get().answers, answer] });
-  },
+      setAnswers: (answer) => {
+        set({ answers: [...get().answers, answer] });
+      },
 
-  resetStore: () => set({ answers: [] }),
-}));
+      resetStore: () => set({ answers: [] }),
+    }),
+    {
+      name: "survey-storage",
+    }
+  )
+);
