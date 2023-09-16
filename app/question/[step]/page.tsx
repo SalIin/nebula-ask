@@ -14,7 +14,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
   if (!question) return null;
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="flex min-h-[calc(100dvh_-_6rem)] flex-col items-center justify-center p-24">
       <SurveyForm question={question} />
     </main>
   );
@@ -23,8 +23,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
 export async function generateStaticParams() {
   const questions = await getQuestions();
 
-  // TODO: type fix
-  return questions.map((question: any) => ({
+  return questions.map((question) => ({
     step: question.id,
   }));
 }
