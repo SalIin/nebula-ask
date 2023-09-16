@@ -13,11 +13,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
 
   if (!question) return null;
 
-  return (
-    <main className="flex min-h-[calc(100dvh_-_6rem)] flex-col items-center justify-center p-24">
-      <SurveyForm question={question} />
-    </main>
-  );
+  return <SurveyForm question={question} />;
 }
 
 export async function generateStaticParams() {

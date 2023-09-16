@@ -35,7 +35,13 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
 
     setAnswers({ type: question.type, values: checkedValues });
 
-    push(`/question/${choosedAnswer!.nextQuestion}`);
+    const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
+
+    const nextPagePathname = isLastQuestion
+      ? `/${choosedAnswer!.nextQuestion}`
+      : `/question/${choosedAnswer!.nextQuestion}`;
+
+    push(nextPagePathname);
   };
 
   const handleValueCheck = (value: string) => {

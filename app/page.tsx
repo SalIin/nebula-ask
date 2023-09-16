@@ -10,11 +10,11 @@ export default async function Home() {
   const firstQuestionId = qestions[0].id;
 
   return (
-    <main className="flex min-h-[calc(100dvh_-_6rem)] flex-col items-center justify-center p-24">
+    <>
       <h1 className="font-bold text-3xl mb-6">Let&apos;s start the journey!</h1>
       <Link href={`${ROUTES.QUESTIONS}/${firstQuestionId}`} variant="button">
         Proceed
       </Link>
-    </main>
+    </>
   );
 }
