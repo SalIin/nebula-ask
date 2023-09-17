@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { CheckIcon } from "@heroicons/react/24/solid";
 
-interface RadioProps {
+interface OptionProps {
   label: string;
   name: string;
   checked: boolean;
@@ -10,14 +10,14 @@ interface RadioProps {
 }
 
 // TODO: rename
-export const Radio: React.FC<RadioProps> = ({
+export const Option: React.FC<OptionProps> = ({
   label,
   name,
   type,
   checked,
   onChange,
 }) => {
-  const customRadioClassNames = clsx(
+  const optionClassNames = clsx(
     "bg-white text-black p-5 flex justify-center transition hover:opacity-90 rounded-md relative",
     checked && "ring-4 ring-green-500 text-green-500"
   );
@@ -31,7 +31,7 @@ export const Radio: React.FC<RadioProps> = ({
 
   return (
     <label className="cursor-pointer">
-      <div className={customRadioClassNames}>
+      <div className={optionClassNames}>
         {label}
         {isCheckbox && (
           <div className={optionCheckboxClassNames}>

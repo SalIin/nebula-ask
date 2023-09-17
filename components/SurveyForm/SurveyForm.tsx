@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 import Button from "@/components/ui/Button";
-import RadioGroup from "@/components/ui/RadioGroup";
+import OptionGroup from "@/components/ui/OptionGroup";
 
 import { useSurveyStore } from "@/store/SurveyStore";
 
@@ -60,7 +60,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
         </h2>
       )}
 
-      <RadioGroup
+      <OptionGroup
         multiple={question.multiple}
         checkedValues={checkedValues}
         values={question.answers.map(({ title }) => title)}

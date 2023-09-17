@@ -1,15 +1,15 @@
 "use client";
 
-import Radio from "../Radio";
+import Option from "../Option";
 
-interface RadioGroupProps {
+interface OptionGroupProps {
   multiple: boolean;
   checkedValues: string[];
   values: string[];
   onChange: (value: string) => void;
 }
 
-export const RadioGroup: React.FC<RadioGroupProps> = ({
+export const OptionGroup: React.FC<OptionGroupProps> = ({
   multiple,
   checkedValues,
   values,
@@ -21,7 +21,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     <ul className="space-y-5">
       {values.map((value) => (
         <li key={value}>
-          <Radio
+          <Option
             type={multiple ? "checkbox" : "radio"}
             name="question"
             label={value}
