@@ -10,7 +10,6 @@ interface OptionProps {
   onChange: (value: string) => void;
 }
 
-// TODO: rename
 export const Option: React.FC<OptionProps> = ({
   label,
   name,
