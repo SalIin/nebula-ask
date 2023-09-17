@@ -43,6 +43,10 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
   const handleValueCheck = (value: string) => {
     if (!question.multiple) {
       setCheckedValues([value]);
+    } else if (checkedValues.includes(value)) {
+      setCheckedValues((prev) =>
+        prev.filter((prevValue) => prevValue !== value)
+      );
     } else {
       setCheckedValues((prev) => [...prev, value]);
     }
