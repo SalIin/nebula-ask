@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="h-24 px-8 flex items-center border-b border-gray-800 sticky top-0 bg-black">
+    <header className="h-24 px-8 flex items-center border-b border-gray-800 sticky top-0 bg-black z-10">
       <Link
         customClassName="text-3xl tracking-wide font-bold uppercase select-none"
         href={ROUTES.HOME}
