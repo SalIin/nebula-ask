@@ -6,19 +6,18 @@ import { FormEvent, useState } from "react";
 import Button from "@/components/ui/Button";
 import OptionGroup from "@/components/ui/OptionGroup";
 
-import { useSurveyStore } from "@/store/SurveyStore";
-
 import { formatQuestionTitle } from "./utils";
+
+import { setAnswers } from "@/store/slices/answersSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 import { SurveyFormProps } from "./types";
 
 export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
   const { push } = useRouter();
 
-  const [answers, setAnswers] = useSurveyStore((state) => [
-    state.answers,
-    state.setAnswers,
-  ]);
+  const answers = useAppSelector((state) => state.answers);
+  const dispatch = useAppDispatch();
 
   const [checkedValues, setCheckedValues] = useState<string[]>([]);
 
@@ -29,7 +28,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
       ({ title }) => title === checkedValues[0]
     );
 
-    setAnswers({ type: question.type, values: checkedValues });
+    dispatch(setAnswers({ type: question.type, values: checkedValues }));
 
     const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
 
