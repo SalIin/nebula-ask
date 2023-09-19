@@ -1,13 +1,3 @@
-const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/question/gender",
-        permanent: false,
-      },
-    ];
-  },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;

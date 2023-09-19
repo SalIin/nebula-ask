@@ -1,7 +1,6 @@
 import clsx from "clsx";
 
 import { CheckIcon } from "@heroicons/react/24/solid";
-import Button from "../Button";
 
 interface OptionProps {
   label: string;

@@ -1,9 +1,14 @@
 import clsx from "clsx";
 import { ButtonHTMLAttributes } from "react";
 
-export const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "button" | "text";
+}
+
+export const Button: React.FC<ButtonProps> = ({
   children,
   className,
+  variant = "button",
   ...restProps
 }) => {
   const buttonClassNames = clsx(
@@ -11,8 +16,13 @@ export const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
     className
   );
 
+  const variants = {
+    button: buttonClassNames,
+    text: "",
+  };
+
   return (
-    <button className={buttonClassNames} {...restProps}>
+    <button className={variants[variant]} {...restProps}>
       {children}
     </button>
   );
