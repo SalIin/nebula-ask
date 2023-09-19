@@ -1,5 +1,5 @@
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import clsx from "clsx";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
 
 interface LinkProps extends NextLinkProps {
   children: React.ReactNode;
@@ -13,16 +13,18 @@ export const Link: React.FC<LinkProps> = ({
   children,
   ...restProps
 }) => {
-  const linkClassNames = {
-    default: clsx("", customClassName),
-    button: clsx(
-      "bg-brand-500 text-white py-3 px-5 transition font-semibold uppercase hover:opacity-90 rounded-md disabled:opacity-50",
-      customClassName
-    ),
+  const buttonClassNames = clsx(
+    "bg-base text-white shadow-dark p-5 text-md transition hover:opacity-90 rounded-2xl disabled:opacity-50",
+    customClassName
+  );
+
+  const variants = {
+    button: buttonClassNames,
+    default: "bg-transparent p-0 shadow-none border-none",
   };
 
   return (
-    <NextLink className={linkClassNames[variant]} {...restProps}>
+    <NextLink className={variants[variant]} {...restProps}>
       {children}
     </NextLink>
   );

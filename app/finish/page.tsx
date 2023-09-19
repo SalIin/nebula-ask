@@ -18,7 +18,7 @@ export default function FinishPage() {
 
   return (
     <>
-      <h1 className="font-bold text-3xl mb-6">Survey completed!</h1>
+      <h1 className="font-bold text-3xl mb-6 block">Survey completed!</h1>
       <Link href={ROUTES.HOME} variant="button">
         Home
       </Link>

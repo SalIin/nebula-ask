@@ -25,7 +25,7 @@
       },
       {
         "title": "In a relationship",
-        "nextQuestion": "single-parent"
+        "nextQuestion": "parent"
       }
     ]
   },
@@ -117,19 +117,19 @@
     "answers": [
       {
         "title": "Yes",
-        "nextQuestion": "emotional-control"
+        "nextQuestion": "about-us"
       },
       {
         "title": "Sometimes",
-        "nextQuestion": "emotional-control"
+        "nextQuestion": "about-us"
       },
       {
         "title": "Rarely",
-        "nextQuestion": "emotional-control"
+        "nextQuestion": "about-us"
       },
       {
         "title": "Not at all",
-        "nextQuestion": "emotional-control"
+        "nextQuestion": "about-us"
       }
     ]
   },

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { AnswerResult } from "@/types/survey";
+import { RootState } from "..";
 
 export interface AnswersState {
   answers: AnswerResult[];
@@ -21,8 +22,6 @@ export const answersSlice = createSlice({
       const storeAnswerIdx = state.answers.findIndex(
         ({ type }) => type === answer.type
       );
-
-      console.log(action);
 
       if (storeAnswerIdx >= 0) {
         state.answers.splice(storeAnswerIdx, 1, answer);

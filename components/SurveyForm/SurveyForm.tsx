@@ -1,6 +1,6 @@
 "use client";
 
-import OptionGroup from "@/components/OptionGroup";
+import OptionsGroup from "@/components/OptionsGroup";
 import ButtonsGroup from "@/components/ButtonsGroup";
 
 import { formatQuestionTitle } from "./utils";
@@ -25,7 +25,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
       )}
 
       {question.multiple ? (
-        <OptionGroup question={question} />
+        <OptionsGroup question={question} />
       ) : (
         <ButtonsGroup question={question} />
       )}
