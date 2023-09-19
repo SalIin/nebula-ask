@@ -51,6 +51,20 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
     }
   };
 
+  const handleAnswerChoose = (value: string) => {
+    const choosedAnswer = question.answers.find(({ title }) => title === value);
+
+    dispatch(setAnswers({ type: question.id, values: checkedValues }));
+
+    const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
+
+    const nextPagePathname = isLastQuestion
+      ? `/${choosedAnswer!.nextQuestion}`
+      : `/question/${choosedAnswer!.nextQuestion}`;
+
+    push(nextPagePathname);
+  };
+
   return (
     <form className="w-full max-w-screen-sm" onSubmit={handleFormSubmit}>
       <h1 className="font-bold text-2xl mb-6 first-letter:capitalize">
@@ -68,11 +82,14 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
         checkedValues={checkedValues}
         values={question.answers.map(({ title }) => title)}
         onChange={handleValueCheck}
+        onChoose={handleAnswerChoose}
       />
 
-      <Button className="w-full mt-8" disabled={checkedValues.length === 0}>
-        Next
-      </Button>
+      {question.multiple && (
+        <Button className="w-full mt-8" disabled={checkedValues.length === 0}>
+          Next
+        </Button>
+      )}
     </form>
   );
 };

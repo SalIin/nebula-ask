@@ -9,7 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: { 400: "#669efd", 500: "#6c7ffe" },
+        brand: { 200: "#E0E0E0", 500: "#EAEEF7" },
+      },
+      dropShadow: {
+        base: "2px 2px 6px 0px rgba(84, 60, 151, 0.25)",
       },
     },
   },

@@ -1,19 +1,18 @@
 import clsx from "clsx";
 
 import { CheckIcon } from "@heroicons/react/24/solid";
+import Button from "../Button";
 
 interface OptionProps {
   label: string;
   name: string;
   checked: boolean;
-  type: "radio" | "checkbox";
   onChange: (value: string) => void;
 }
 
 export const Option: React.FC<OptionProps> = ({
   label,
   name,
-  type,
   checked,
   onChange,
 }) => {
@@ -27,22 +26,19 @@ export const Option: React.FC<OptionProps> = ({
     checked && "border-green-500"
   );
 
-  const isCheckbox = type === "checkbox";
-
   return (
     <label className="cursor-pointer">
       <div className={optionClassNames}>
         {label}
-        {isCheckbox && (
-          <div className={optionCheckboxClassNames}>
-            {checked && <CheckIcon className="h-w-3/4 w-3/4" />}
-          </div>
-        )}
+
+        <div className={optionCheckboxClassNames}>
+          {checked && <CheckIcon className="h-w-3/4 w-3/4" />}
+        </div>
       </div>
       <input
         name={name}
         className="sr-only"
-        type={type}
+        type="checkbox"
         value={label}
         checked={checked}
         onChange={(e) => onChange(e.target.value)}
