@@ -4,20 +4,21 @@ import { useEffect } from "react";
 
 import Link from "@/components/ui/Link";
 
-import { useSurveyStore } from "@/store/SurveyStore";
+import { useAppDispatch } from "@/store/hooks";
+import { resetAnswers } from "@/store/slices/answersSlice";
 
 import { ROUTES } from "@/constants/routes";
 
 export default function FinishPage() {
-  const resetStore = useSurveyStore((state) => state.resetStore);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    resetStore();
+    dispatch(resetAnswers());
   }, []);
 
   return (
     <>
-      <h1 className="font-bold text-3xl mb-6">Survey completed!</h1>
+      <h1 className="font-bold text-3xl mb-6 block">Survey completed!</h1>
       <Link href={ROUTES.HOME} variant="button">
         Home
       </Link>

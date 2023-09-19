@@ -6,43 +6,35 @@ interface OptionProps {
   label: string;
   name: string;
   checked: boolean;
-  type: "radio" | "checkbox";
   onChange: (value: string) => void;
 }
 
 export const Option: React.FC<OptionProps> = ({
   label,
   name,
-  type,
   checked,
   onChange,
 }) => {
   const optionClassNames = clsx(
-    "bg-white text-black p-5 flex justify-center transition hover:opacity-90 rounded-md relative",
-    checked && "ring-4 ring-green-500 text-green-500"
+    "bg-brand-500 border border-brand-200 shadow-base py-6 px-5 hover:opacity-90 rounded-2xl disabled:opacity-50 relative w-full flex justify-center transition-opacity",
+    checked && "bg-base text-white"
   );
 
   const optionCheckboxClassNames = clsx(
-    "border border-black w-4 h-4 absolute right-5 top-1/2 -mt-2 rounded-sm flex items-center justify-center",
-    checked && "border-green-500"
+    "border border-brand-200 w-6 h-6 bg-white absolute right-5 top-1/2 -mt-3 rounded-full"
   );
-
-  const isCheckbox = type === "checkbox";
 
   return (
     <label className="cursor-pointer">
       <div className={optionClassNames}>
         {label}
-        {isCheckbox && (
-          <div className={optionCheckboxClassNames}>
-            {checked && <CheckIcon className="h-w-3/4 w-3/4" />}
-          </div>
-        )}
+
+        <div className={optionCheckboxClassNames} />
       </div>
       <input
         name={name}
         className="sr-only"
-        type={type}
+        type="checkbox"
         value={label}
         checked={checked}
         onChange={(e) => onChange(e.target.value)}

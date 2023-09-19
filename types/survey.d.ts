@@ -1,6 +1,7 @@
 export interface AnswerResult {
-  type: Question["type"];
+  type: Question["id"];
   values: Answer["title"][];
+  multidirectional: boolean;
 }
 
 export interface Answer {
@@ -10,9 +11,8 @@ export interface Answer {
 
 export interface Question {
   id: string;
-  type: string;
   title: string;
   subtitle?: string;
-  multiple: boolean;
   answers: Answer[];
+  multiple: boolean;
 }

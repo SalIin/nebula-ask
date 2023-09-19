@@ -1,27 +1,48 @@
 "use client";
 
-import Link from "@/components/ui/Link";
+import Image from "next/image";
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { useRouter, useSearchParams } from "next/navigation";
 
-import { useSurveyStore } from "@/store/SurveyStore";
+import Link from "@/components/ui/Link";
+import Button from "@/components/ui/Button";
+
+import { useAppDispatch } from "@/store/hooks";
+import { resetAnswers } from "@/store/slices/answersSlice";
 
 import { ROUTES } from "@/constants/routes";
 
+import NebulaLogo from "../../public/icons/nebula-logo.svg";
+
 export const Header: React.FC = () => {
-  const resetStore = useSurveyStore((state) => state.resetStore);
+  const { back } = useRouter();
+
+  const searchParams = useSearchParams();
+  const dispatch = useAppDispatch();
 
   const handleLinkClick = () => {
-    resetStore();
+    dispatch(resetAnswers());
   };
 
+  const handleBackButtonClick = () => back();
+
+  const isFirstQuestion = searchParams.get("leading");
+
   return (
-    <header className="h-24 px-8 flex items-center border-b border-gray-800 sticky top-0 bg-black z-10">
-      <Link
-        customClassName="text-3xl tracking-wide font-bold uppercase select-none"
-        href={ROUTES.HOME}
-        onClick={handleLinkClick}
-      >
-        Nebula<span className="text-brand-500">Ask</span>
-      </Link>
+    <header className="h-14 px-8 flex items-center">
+      <div className="w-1/3 flex items-center">
+        {!isFirstQuestion && (
+          <Button variant="text" onClick={handleBackButtonClick} noPaddings>
+            <ChevronLeftIcon className="w-6 h-6" />
+          </Button>
+        )}
+      </div>
+      <div className="w-1/3 flex justify-center">
+        <Link href={ROUTES.HOME} onClick={handleLinkClick} customClassName="">
+          <Image src={NebulaLogo} alt="Nebula Ask" />
+        </Link>
+      </div>
+      <div className="w-1/3" />
     </header>
   );
 };
