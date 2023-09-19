@@ -18,8 +18,13 @@ export const useForm = (question: Question, checkedValues: string[]) => {
     const choosedAnswer = question.answers.find(
       ({ title }) => title === checkedValues[0]
     );
+    const multidirectional = !question.answers.every(
+      ({ nextQuestion }) => nextQuestion === question.answers[0].nextQuestion
+    );
 
-    dispatch(setAnswers({ type: question.id, values: checkedValues }));
+    dispatch(
+      setAnswers({ type: question.id, values: checkedValues, multidirectional })
+    );
 
     const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
 

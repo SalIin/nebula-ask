@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
     <header className="h-14 px-8 flex items-center">
       <div className="w-1/3 flex items-center">
         {!isFirstQuestion && (
-          <Button variant="text" onClick={handleBackButtonClick}>
+          <Button variant="text" onClick={handleBackButtonClick} noPaddings>
             <ChevronLeftIcon className="w-6 h-6" />
           </Button>
         )}

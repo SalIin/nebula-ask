@@ -5,6 +5,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "button" | "text";
   colorSchema?: "default" | "brand";
   size?: "sm" | "md";
+  noPaddings?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -13,21 +14,17 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "button",
   colorSchema = "default",
   size = "md",
+  noPaddings = false,
   ...restProps
 }) => {
-  const buttonClassNames = clsx(
-    "transition hover:opacity-90 rounded-2xl disabled:opacity-50",
-    className
-  );
-
-  const variants = {
-    button: buttonClassNames,
-    text: "bg-transparent p-0 shadow-none border-none",
-  };
-
   const colorSchemas = {
     default: "bg-brand-500 border border-brand-200 shadow-base",
     brand: "bg-base text-white shadow-dark",
+  };
+
+  const variants = {
+    button: "transition hover:opacity-90 rounded-2xl disabled:opacity-50",
+    text: "bg-transparent shadow-none p-0 border-none",
   };
 
   const sizes = {
@@ -35,14 +32,15 @@ export const Button: React.FC<ButtonProps> = ({
     md: "p-5 text-md",
   };
 
-  const styles = clsx(
-    variants[variant],
+  const buttonClassNames = clsx(
     colorSchemas[colorSchema],
-    sizes[size]
+    !noPaddings && sizes[size],
+    variants[variant],
+    className
   );
 
   return (
-    <button className={styles} {...restProps}>
+    <button className={buttonClassNames} {...restProps}>
       {children}
     </button>
   );
