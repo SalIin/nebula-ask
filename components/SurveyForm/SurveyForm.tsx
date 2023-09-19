@@ -19,7 +19,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
       </h1>
 
       {question.subtitle && (
-        <h2 className="italic text-white/80 text-lg mb-8 first-letter:capitalize">
+        <h2 className="italic text-black/80 text-lg mb-8 first-letter:capitalize">
           {question.subtitle}
         </h2>
       )}

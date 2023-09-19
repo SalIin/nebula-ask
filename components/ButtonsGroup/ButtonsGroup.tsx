@@ -20,8 +20,13 @@ export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ question }) => {
 
   const handleAnswerChoose = (value: string) => {
     const choosedAnswer = question.answers.find(({ title }) => title === value);
+    const multidirectional = !question.answers.every(
+      ({ nextQuestion }) => nextQuestion === question.answers[0].nextQuestion
+    );
 
-    dispatch(setAnswers({ type: question.id, values: [value] }));
+    dispatch(
+      setAnswers({ type: question.id, values: [value], multidirectional })
+    );
 
     const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
 

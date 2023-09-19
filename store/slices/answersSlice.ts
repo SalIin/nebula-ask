@@ -25,6 +25,10 @@ export const answersSlice = createSlice({
 
       if (storeAnswerIdx >= 0) {
         state.answers.splice(storeAnswerIdx, 1, answer);
+
+        if (action.payload.multidirectional) {
+          state.answers.splice(storeAnswerIdx + 1);
+        }
       } else {
         state.answers.push(action.payload);
       }

@@ -1,6 +1,7 @@
 export interface AnswerResult {
   type: Question["id"];
   values: Answer["title"][];
+  multidirectional: boolean;
 }
 
 export interface Answer {
