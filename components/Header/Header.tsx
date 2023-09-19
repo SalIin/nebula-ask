@@ -5,7 +5,11 @@ import Link from "@/components/ui/Link";
 import { useAppDispatch } from "@/store/hooks";
 import { resetAnswers } from "@/store/slices/answersSlice";
 
+import Image from "next/image";
+
 import { ROUTES } from "@/constants/routes";
+
+import NebulaLogo from "../../public/icons/nebula-logo.svg";
 
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -15,14 +19,14 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="h-24 px-8 flex items-center border-b border-gray-800 sticky top-0 bg-black z-10">
-      <Link
-        customClassName="text-3xl tracking-wide font-bold uppercase select-none"
-        href={ROUTES.HOME}
-        onClick={handleLinkClick}
-      >
-        Nebula<span className="text-brand-500">Ask</span>
-      </Link>
+    <header className="h-24 px-8 flex items-center sticky top-0 z-10">
+      <div className="w-1/3"></div>
+      <div className="w-1/3 flex justify-center">
+        <Link href={ROUTES.HOME} onClick={handleLinkClick} customClassName="">
+          <Image src={NebulaLogo} alt="Nebula Ask" />
+        </Link>
+      </div>
+      <div className="w-1/3" />
     </header>
   );
 };
