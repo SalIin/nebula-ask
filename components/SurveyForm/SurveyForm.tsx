@@ -1,69 +1,25 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
-
 import Button from "@/components/ui/Button";
-import OptionGroup from "@/components/ui/OptionGroup";
+import OptionGroup from "@/components/OptionGroup";
 
 import { formatQuestionTitle } from "./utils";
 
-import { setAnswers } from "@/store/slices/answersSlice";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "@/store/hooks";
+
+import { useControls } from "./hooks";
 
 import { SurveyFormProps } from "./types";
 
 export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
-  const { push } = useRouter();
+  const {
+    checkedValues,
+    handleFormSubmit,
+    handleValueCheck,
+    handleAnswerChoose,
+  } = useControls(question);
 
   const answers = useAppSelector((state) => state.answers);
-  const dispatch = useAppDispatch();
-
-  const [checkedValues, setCheckedValues] = useState<string[]>([]);
-
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const choosedAnswer = question.answers.find(
-      ({ title }) => title === checkedValues[0]
-    );
-
-    dispatch(setAnswers({ type: question.id, values: checkedValues }));
-
-    const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
-
-    const nextPagePathname = isLastQuestion
-      ? `/${choosedAnswer!.nextQuestion}`
-      : `/question/${choosedAnswer!.nextQuestion}`;
-
-    push(nextPagePathname);
-  };
-
-  const handleValueCheck = (value: string) => {
-    if (!question.multiple) {
-      setCheckedValues([value]);
-    } else if (checkedValues.includes(value)) {
-      setCheckedValues((prev) =>
-        prev.filter((prevValue) => prevValue !== value)
-      );
-    } else {
-      setCheckedValues((prev) => [...prev, value]);
-    }
-  };
-
-  const handleAnswerChoose = (value: string) => {
-    const choosedAnswer = question.answers.find(({ title }) => title === value);
-
-    dispatch(setAnswers({ type: question.id, values: checkedValues }));
-
-    const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
-
-    const nextPagePathname = isLastQuestion
-      ? `/${choosedAnswer!.nextQuestion}`
-      : `/question/${choosedAnswer!.nextQuestion}`;
-
-    push(nextPagePathname);
-  };
 
   return (
     <form className="w-full max-w-screen-sm" onSubmit={handleFormSubmit}>
@@ -86,7 +42,12 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
       />
 
       {question.multiple && (
-        <Button className="w-full mt-8" disabled={checkedValues.length === 0}>
+        <Button
+          className="w-full mt-8"
+          colorSchema="brand"
+          disabled={checkedValues.length === 0}
+          size="sm"
+        >
           Next
         </Button>
       )}

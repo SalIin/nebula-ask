@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "../Button";
-import Option from "../Option";
+import Button from "../ui/Button";
+import Option from "../ui/Option";
 
 interface OptionGroupProps {
   multiple: boolean;

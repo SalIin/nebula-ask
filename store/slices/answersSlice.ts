@@ -16,7 +16,19 @@ export const answersSlice = createSlice({
   initialState,
   reducers: {
     setAnswers: (state, action: PayloadAction<AnswerResult>) => {
-      state.answers.push(action.payload);
+      const answer = action.payload;
+
+      const storeAnswerIdx = state.answers.findIndex(
+        ({ type }) => type === answer.type
+      );
+
+      console.log(action);
+
+      if (storeAnswerIdx >= 0) {
+        state.answers.splice(storeAnswerIdx, 1, answer);
+      } else {
+        state.answers.push(action.payload);
+      }
     },
 
     resetAnswers: (state) => {
