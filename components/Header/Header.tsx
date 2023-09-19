@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
   const isFirstQuestion = searchParams.get("leading");
 
   return (
-    <header className="h-14 px-8 flex items-center sticky top-0 z-10">
+    <header className="h-14 px-8 flex items-center">
       <div className="w-1/3 flex items-center">
         {!isFirstQuestion && (
           <Button variant="text" onClick={handleBackButtonClick}>
