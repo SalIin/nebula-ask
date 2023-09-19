@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { AnswerResult } from "@/types/survey";
-import { RootState } from "..";
 
 export interface AnswersState {
   answers: AnswerResult[];
