@@ -12,6 +12,6 @@ export interface Question {
   id: string;
   title: string;
   subtitle?: string;
-  multiple: boolean;
   answers: Answer[];
+  multiple: boolean;
 }

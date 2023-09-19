@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <Header />
-          <main className="flex min-h-[calc(100dvh_-_6rem)] flex-col items-center justify-center py-10 px-8 md:p-24">
+          <main className="flex justify-center py-10 px-8 md:p-24">
             {children}
           </main>
         </StoreProvider>
