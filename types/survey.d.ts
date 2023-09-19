@@ -1,5 +1,5 @@
 export interface AnswerResult {
-  type: Question["type"];
+  type: Question["id"];
   values: Answer["title"][];
 }
 
@@ -10,7 +10,6 @@ export interface Answer {
 
 export interface Question {
   id: string;
-  type: string;
   title: string;
   subtitle?: string;
   multiple: boolean;

@@ -28,7 +28,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ question }) => {
       ({ title }) => title === checkedValues[0]
     );
 
-    dispatch(setAnswers({ type: question.type, values: checkedValues }));
+    dispatch(setAnswers({ type: question.id, values: checkedValues }));
 
     const isLastQuestion = choosedAnswer!.nextQuestion === "finish";
 

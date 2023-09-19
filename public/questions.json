@@ -1,7 +1,6 @@
 [
   {
-    "id": "e5d085c6-b67b-4aa5-bd0c-3f0b843c62ad",
-    "type": "gender",
+    "id": "gender",
     "title": "Select your gender",
     "multiple": false,
     "answers": [
@@ -16,8 +15,7 @@
     ]
   },
   {
-    "id": "b8455115-db7e-4028-90a6-f410decb075a",
-    "type": "relationship",
+    "id": "relationship",
     "title": "So we can get to know you better, tell us about your relationship status",
     "multiple": false,
     "answers": [
@@ -32,8 +30,7 @@
     ]
   },
   {
-    "id": "5065c3e4-dea8-49d5-b1b2-43cc1715b4a1",
-    "type": "parent",
+    "id": "parent",
     "title": "Are you a parent",
     "multiple": false,
     "answers": [
@@ -45,8 +42,7 @@
     ]
   },
   {
-    "id": "2b226a26-4dd0-46f6-b6f3-9773b9813fbd",
-    "type": "single-parent",
+    "id": "single-parent",
     "title": "Are you a single parent",
     "multiple": false,
     "answers": [
@@ -58,8 +54,7 @@
     ]
   },
   {
-    "id": "b963f057-dbc5-48ae-9016-c2486cb4d2f7",
-    "type": "relationship-satisfying",
+    "id": "relationship-satisfying",
     "title": "#gender {#parent ? who have children : } need a slightly different approach to improve their relationship. Which statement best describes you?",
     "multiple": false,
     "answers": [
@@ -78,8 +73,7 @@
     ]
   },
   {
-    "id": "0fe6b535-8ed6-4e71-9b8a-c37aa266f807",
-    "type": "overthink",
+    "id": "overthink",
     "title": "Do you tend to overthink?",
     "multiple": false,
     "answers": [
@@ -94,8 +88,7 @@
     ]
   },
   {
-    "id": "8932d66e-0c35-4fd2-aa5e-c5edd5d9aba2",
-    "type": "valuables",
+    "id": "valuables",
     "title": "What is most important to you?",
     "multiple": false,
     "answers": [
@@ -118,8 +111,7 @@
     ]
   },
   {
-    "id": "08a89bd7-b7b0-4561-853f-65c92be5190f",
-    "type": "emotional-control",
+    "id": "emotional-control",
     "title": "Is emotional control tricky for you?",
     "multiple": false,
     "answers": [
@@ -142,8 +134,7 @@
     ]
   },
   {
-    "id": "3e6b8788-e56f-4094-8c0e-12bbb4d57700",
-    "type": "last-relationship-satisfying",
+    "id": "last-relationship-satisfying",
     "title": "Single #gender {#single-parent ? who have children : } need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
     "multiple": false,
     "answers": [
@@ -166,8 +157,7 @@
     ]
   },
   {
-    "id": "f8d535ad-2bed-4504-bb31-10da757829ec",
-    "type": "partner-personality",
+    "id": "partner-personality",
     "title": "Is your partner an introvert or extrovert?",
     "multiple": false,
     "answers": [
@@ -186,8 +176,7 @@
     ]
   },
   {
-    "id": "285df6cc-cf16-4b51-a365-f4dbf7595680",
-    "type": "partner-gender",
+    "id": "partner-gender",
     "title": "What is your partner’s gender?",
     "multiple": false,
     "answers": [
@@ -202,8 +191,7 @@
     ]
   },
   {
-    "id": "6a604166-7e78-494a-bf4f-a1f8ecf5df61",
-    "type": "sex-is-priority",
+    "id": "sex-is-priority",
     "title": "Do you agree with the statement below?",
     "subtitle": "“My partner and I make sex a priority in our relationship”",
     "multiple": false,
@@ -231,8 +219,7 @@
     ]
   },
   {
-    "id": "47514f51-9fbb-434f-8234-cb754ca7ebca",
-    "type": "relationship-factors",
+    "id": "relationship-factors",
     "title": "Are any of these factors currently affecting your relationship?",
     "multiple": true,
     "answers": [
@@ -279,8 +266,7 @@
     ]
   },
   {
-    "id": "b5e3010d-e6ba-46aa-a0bf-44ed9b79610f",
-    "type": "relationship-goals",
+    "id": "relationship-goals",
     "title": "When you think about your relationship goals, you feel...?",
     "multiple": false,
     "answers": [
@@ -299,8 +285,7 @@
     ]
   },
   {
-    "id": "c3d087f2-69a0-4910-8dfb-7815cd18c4ef",
-    "type": "about-us",
+    "id": "about-us",
     "title": "Where did you hear about us?",
     "multiple": false,
     "answers": [
